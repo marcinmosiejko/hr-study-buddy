@@ -1,13 +1,13 @@
-import React from 'react';
-import { users } from 'data/users';
+import React, { useState, useEffect } from 'react';
+import { users as usersData } from 'data/users';
 import UsersListItem from 'components/molecules/UsersListItem/UsersListItem';
 import { Wrapper } from './UsersList.styles';
 
 const mockAPI = () => {
   return new Promise((resolve, reject) => {
     setTimeout(() => {
-      if (users) {
-        resolve([...users]);
+      if (usersData) {
+        resolve([...usersData]);
       } else {
         reject({ message: 'Error' });
       }
@@ -15,46 +15,44 @@ const mockAPI = () => {
   });
 };
 
-class UsersList extends React.Component {
-  state = {
-    users: null,
-    isLoading: false,
+const UsersList = () => {
+  const [users, setUsers] = useState([]);
+  const [isLoading, setLoadingState] = useState(false);
+
+  const deleteUser = (name) => {
+    const filteredUsers = users.filter((user) => user.name !== name);
+    setUsers(filteredUsers);
   };
 
-  componentDidMount() {
-    this.setState({ isLoading: true });
+  useEffect(() => {
+    setLoadingState(true);
     mockAPI()
-      .then((data) => this.setState({ users: data, isLoading: false }))
+      .then((data) => {
+        setLoadingState(false);
+        setUsers(data);
+      })
       .catch((err) => console.error(err.message));
-  }
+  }, []);
 
-  componentDidUpdate(_, prevState) {
-    if (prevState.isLoading !== this.state.isLoading)
-      console.log('Loading state has changed');
-  }
+  useEffect(() => {
+    console.log('Loading state has changed');
+  }, [isLoading]);
 
-  deleteUser = (name) => {
-    const filteredUsers = this.state.users.filter((user) => user.name !== name);
-    this.setState({ users: filteredUsers });
-  };
-
-  render() {
-    return (
-      <Wrapper>
-        <h1>{this.state.isLoading ? 'Loading data...' : 'Users list'}</h1>
-        <ul>
-          {this.state.users?.map((userData, i) => (
-            <UsersListItem
-              deleteUser={this.deleteUser}
-              index={i}
-              key={Object.values(userData).join('')}
-              userData={userData}
-            />
-          ))}
-        </ul>
-      </Wrapper>
-    );
-  }
-}
+  return (
+    <Wrapper>
+      <h1>{isLoading ? 'Loading data...' : 'Users list'}</h1>
+      <ul>
+        {users?.map((userData, i) => (
+          <UsersListItem
+            deleteUser={deleteUser}
+            index={i}
+            key={Object.values(userData).join('')}
+            userData={userData}
+          />
+        ))}
+      </ul>
+    </Wrapper>
+  );
+};
 
 export default UsersList;
