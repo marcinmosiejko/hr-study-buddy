@@ -2,7 +2,7 @@ export const users = [
   {
     name: 'Adam Romański',
     attendance: '39%',
-    average: '2.3',
+    average: '4.3',
   },
   {
     name: 'Krzysztof Batko',
@@ -15,8 +15,23 @@ export const users = [
     average: '2.9',
   },
   {
-    name: 'Ferdek Boczek',
+    name: 'Arnold Boczek',
     attendance: '19%',
-    average: '2.1',
+    average: '1.9',
+  },
+  {
+    name: 'Marian Paździoch',
+    attendance: '9%',
+    average: '1.2',
+  },
+  {
+    name: 'Elon Musk',
+    attendance: '69%',
+    average: '5.0',
+  },
+  {
+    name: 'Roger Federer',
+    attendance: '89%',
+    average: '3.9',
   },
 ];

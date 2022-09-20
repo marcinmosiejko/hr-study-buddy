@@ -1,8 +1,9 @@
 import { users } from 'data/users';
-import UsersListItem from 'components/UsersListItem/UsersListItem';
+import UsersListItem from 'components/molecules/UsersListItem/UsersListItem';
+import { Wrapper } from './UsersList.styles';
 
 const UsersList = () => (
-  <div>
+  <Wrapper>
     <ul>
       {users.map((userData) => (
         <UsersListItem
@@ -11,7 +12,7 @@ const UsersList = () => (
         />
       ))}
     </ul>
-  </div>
+  </Wrapper>
 );
 
 export default UsersList;
