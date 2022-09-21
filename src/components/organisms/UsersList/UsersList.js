@@ -1,13 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import UsersListItem from 'components/molecules/UsersListItem/UsersListItem';
-import { ViewWrapper, StyledTitle } from 'assets/styles/globalStyle';
+import { ViewWrapper } from 'components/molecules/ViewWrapper/ViewWrapper';
 import { StyledList } from './UsersList.styles';
+import { Title } from 'components/atoms/Title/Title';
 
 const UsersList = ({ users, deleteUser }) => {
   return (
-    <ViewWrapper>
-      <StyledTitle>Students list</StyledTitle>
+    <>
+      <Title>Students list</Title>
       <StyledList>
         {users?.map((userData, i) => (
           <UsersListItem
@@ -18,7 +19,7 @@ const UsersList = ({ users, deleteUser }) => {
           />
         ))}
       </StyledList>
-    </ViewWrapper>
+    </>
   );
 };
 

@@ -1,14 +1,16 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import FormField from 'components/molecules/UsersListItem/FormField/FormField';
-import { ViewWrapper, StyledTitle } from 'assets/styles/globalStyle';
+import { ViewWrapper } from 'components/molecules/ViewWrapper/ViewWrapper';
 import { Button } from 'components/atoms/Button/Button';
+import { Title } from 'components/atoms/Title/Title';
+import { UserShape } from 'types';
 
-const Form = ({ handleAddUser, handleInputChange, formValues }) => {
+const AddUser = ({ handleAddUser, handleInputChange, formValues }) => {
   return (
     <>
       <ViewWrapper as="form" onSubmit={handleAddUser}>
-        <StyledTitle>Add new student</StyledTitle>
+        <Title>Add new student</Title>
         <FormField
           label="Name"
           id="name"
@@ -36,9 +38,10 @@ const Form = ({ handleAddUser, handleInputChange, formValues }) => {
   );
 };
 
-Form.propTypes = {
+AddUser.propTypes = {
   handleAddUser: PropTypes.func.isRequired,
   handleInputChange: PropTypes.func.isRequired,
+  formValues: PropTypes.shape(UserShape),
 };
 
-export default Form;
+export default AddUser;

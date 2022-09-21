@@ -2,13 +2,15 @@ import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
 export const Wrapper = styled.nav`
-  padding: 30px 0;
+  width: 100%,
+  height: 100%;
   display: flex;
   flex-direction: column;
   gap: 30px;
+  padding: 30px 0;
 
   border-right: 1px solid ${({ theme }) => theme.colors.darkPurple};
-  font-size: ${({ theme }) => theme.fontSize.m};
+  font-size: ${({ theme }) => theme.fontSize.l};
   font-weight: 700;
 `;
 

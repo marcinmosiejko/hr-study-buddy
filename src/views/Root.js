@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { users as usersData } from 'data/users';
 import MainTemplate from 'components/templates/MainTemplate/MainTemplate';
-import UsersList from 'components/organisms/UsersList/UsersList';
-import Form from 'components/organisms/Form/Form';
+import AddUser from './AddUser';
+import Dashboard from './Dashboard';
 import { ThemeProvider } from 'styled-components';
 import { GlobalStyle } from 'assets/styles/globalStyle';
 import { theme } from 'assets/styles/theme';
@@ -51,13 +51,13 @@ const Root = () => {
             <Routes>
               <Route
                 path="/"
-                element={<UsersList deleteUser={deleteUser} users={users} />}
+                element={<Dashboard deleteUser={deleteUser} users={users} />}
               />
 
               <Route
                 path="/add-user"
                 element={
-                  <Form
+                  <AddUser
                     handleAddUser={handleAddUser}
                     handleInputChange={handleInputChange}
                     formValues={formValues}
