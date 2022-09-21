@@ -23,11 +23,7 @@ const UsersList = ({ users, deleteUser }) => {
 };
 
 UsersList.propTypes = {
-  users: PropTypes.shape({
-    name: PropTypes.string.isRequired,
-    attendance: PropTypes.string.isRequired,
-    average: PropTypes.string,
-  }),
+  users: PropTypes.array.isRequired,
   deleteUser: PropTypes.func.isRequired,
 };
 

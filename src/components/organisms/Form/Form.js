@@ -39,12 +39,6 @@ const Form = ({ handleAddUser, handleInputChange, formValues }) => {
 Form.propTypes = {
   handleAddUser: PropTypes.func.isRequired,
   handleInputChange: PropTypes.func.isRequired,
-
-  formValues: (PropTypes.shape = {
-    name: PropTypes.string.isRequired,
-    attendance: PropTypes.string.isRequired,
-    average: PropTypes.string.isRequired,
-  }),
 };
 
 export default Form;
