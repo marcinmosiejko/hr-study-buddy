@@ -18,6 +18,7 @@ html {
 
 body {
     font-family: 'Montserrat', sans-serif;
+    position: relative;
 }
 
 

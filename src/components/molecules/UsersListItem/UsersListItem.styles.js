@@ -6,7 +6,7 @@ export const Wrapper = styled.li`
   gap: 20px;
   position: relative;
 
-  &:not(:first-child) {
+  & {
     padding-top: 24px;
   }
 
@@ -22,4 +22,15 @@ export const Wrapper = styled.li`
       background-color: lightgrey;
     }
   }
+`;
+
+export const StyledName = styled.p`
+  font-size: ${({ theme }) => theme.fontSize.l};
+  font-weight: 700;
+  color: ${({ theme }) => theme.colors.darkGrey};
+`;
+
+export const StyledAttendance = styled.p`
+  font-size: ${({ theme }) => theme.fontSize.m};
+  color: ${({ theme }) => theme.colors.darkGrey};
 `;
