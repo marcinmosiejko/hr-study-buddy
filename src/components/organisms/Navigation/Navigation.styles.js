@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 export const Wrapper = styled.nav`
   width: 100%,
@@ -30,8 +30,8 @@ export const Logo = styled.div`
   }
 `;
 
-export const StyledLink = styled(Link)`
-  margin-right: 25px;
+export const StyledLink = styled(NavLink)`
+  padding-right: 25px;
   text-align: right;
 
   &:link,
@@ -47,22 +47,23 @@ export const StyledLink = styled(Link)`
     color: ${({ theme }) => theme.colors.darkPurple};
   }
 
-  ${
-    '' /* &.active {
-    &:link,
-    &:visited {
-      &::after {
-        position: absolute;
-        content: '';
-        width: 18px;
-        height: 3px;
-        top: 50%;
-        right: 0;
-        padding-left: 3px;
-        transform: translateY(-50%);
-        background-color: ${({ theme }) => theme.colors.darkPurple};
-      }
+  &.active {
+    &::after {
+      opacity: 1;
     }
-  } */
+  }
+
+  &::after {
+    opacity: 0;
+    position: absolute;
+    content: '';
+    width: 18px;
+    height: 3px;
+    top: 50%;
+    right: 0;
+    padding-left: 7px;
+    transform: translate(0, -50%);
+    background-color: ${({ theme }) => theme.colors.darkPurple};
+    transition: all 0.2s ease-in-out;
   }
 `;
