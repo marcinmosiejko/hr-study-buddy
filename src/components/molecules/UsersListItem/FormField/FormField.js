@@ -22,6 +22,7 @@ const FormField = ({ value, label, name, id, type = 'text', onChange }) => {
         type={type}
         value={value}
         onChange={onChange}
+        data-testid={label}
       />
     </Wrapper>
   );
