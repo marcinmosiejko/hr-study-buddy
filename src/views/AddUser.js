@@ -1,4 +1,4 @@
-import React, { useContext, useReducer } from 'react';
+import React, { useContext, useEffect, useReducer, useRef } from 'react';
 import FormField from 'components/molecules/UsersListItem/FormField/FormField';
 import { ViewWrapper } from 'components/molecules/ViewWrapper/ViewWrapper';
 import { Button } from 'components/atoms/Button/Button';
@@ -37,8 +37,14 @@ const reducer = (state, action) => {
 
 const AddUser = () => {
   const [formValues, dispatch] = useReducer(reducer, initialFormState);
-
   const { handleAddUser } = useContext(UsersContext);
+  const ref = useRef(null);
+
+  useEffect(() => {
+    if (!ref.current) return;
+
+    ref.current.focus();
+  });
 
   const handleInputChange = (e) => {
     dispatch({
@@ -68,6 +74,7 @@ const AddUser = () => {
       <Title>Add new student</Title>
 
       <FormField
+        ref={ref}
         label="Name"
         id="name"
         name="name"
@@ -97,8 +104,6 @@ const AddUser = () => {
         value={formValues.consent}
       />
       <Button type="submit">Add</Button>
-      {console.log(formValues.error)}
-      {console.log(formValues.consent)}
       {formValues.error ? <p>{formValues.error}</p> : null}
     </ViewWrapper>
   );
