@@ -25,4 +25,8 @@ body {
 a, button {
     font-family: 'Montserrat', sans-serif;
 }
+
+h3 {
+    margin-bottom: 20px;
+}
 `;
