@@ -1,9 +1,10 @@
-import React, { useContext, useEffect, useReducer, useRef } from 'react';
+import React, { useContext, useReducer } from 'react';
 import FormField from 'components/molecules/UsersListItem/FormField/FormField';
 import { ViewWrapper } from 'components/molecules/ViewWrapper/ViewWrapper';
 import { Button } from 'components/atoms/Button/Button';
 import { Title } from 'components/atoms/Title/Title';
 import { UsersContext } from 'providers/UsersProvider';
+import { useWindowHeight } from 'hooks/useWindowSize';
 
 const initialFormState = {
   name: '',
@@ -38,14 +39,7 @@ const reducer = (state, action) => {
 const AddUser = () => {
   const [formValues, dispatch] = useReducer(reducer, initialFormState);
   const { handleAddUser } = useContext(UsersContext);
-  const ref = useRef(null);
-
-  useEffect(() => {
-    if (!ref.current) return;
-
-    ref.current.focus();
-  });
-
+  const dimensions = useWindowHeight();
   const handleInputChange = (e) => {
     dispatch({
       type: actionTypes.inputChange,
@@ -72,9 +66,10 @@ const AddUser = () => {
   return (
     <ViewWrapper as="form" onSubmit={handleSubmitUser}>
       <Title>Add new student</Title>
+      <Title>Screen width: {dimensions.width}px</Title>
+      <Title>Screen height: {dimensions.height}px</Title>
 
       <FormField
-        ref={ref}
         label="Name"
         id="name"
         name="name"

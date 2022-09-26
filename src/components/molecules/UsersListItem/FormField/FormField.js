@@ -12,25 +12,21 @@ const Wrapper = styled.div`
   padding: 12px 0;
 `;
 
-const FormField = React.forwardRef(
-  ({ value, label, name, id, type = 'text', onChange }, ref) => {
-    return (
-      <Wrapper>
-        <Label htmlFor={id}>{label}</Label>
-        <Input
-          ref={ref}
-          name={name}
-          id={id}
-          type={type}
-          value={value}
-          onChange={onChange}
-          data-testid={label}
-        />
-      </Wrapper>
-    );
-  }
-);
-
+const FormField = ({ value, label, name, id, type = 'text', onChange }) => {
+  return (
+    <Wrapper>
+      <Label htmlFor={id}>{label}</Label>
+      <Input
+        name={name}
+        id={id}
+        type={type}
+        value={value}
+        onChange={onChange}
+        data-testid={label}
+      />
+    </Wrapper>
+  );
+};
 FormField.propTypes = {
   label: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
