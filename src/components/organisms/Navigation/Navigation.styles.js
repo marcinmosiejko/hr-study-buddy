@@ -8,6 +8,8 @@ export const Wrapper = styled.nav`
   flex-direction: column;
   gap: 30px;
   padding: 30px 0;
+  grid-row: 1/3;
+  grid-column: 1/1 ;
 
   border-right: 1px solid ${({ theme }) => theme.colors.darkPurple};
   font-size: ${({ theme }) => theme.fontSize.l};
