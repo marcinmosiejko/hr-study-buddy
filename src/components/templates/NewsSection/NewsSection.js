@@ -53,7 +53,7 @@ const NewsSection = () => {
             </TitleWrapper>
             <ContentWrapper>
               <p>{content}</p>
-              {image ? <img src={image.url} alt="article image" /> : null}
+              {image ? <img src={image.url} alt="article" /> : null}
             </ContentWrapper>
             <Button isBig>Read more</Button>
           </ArticleWrapper>

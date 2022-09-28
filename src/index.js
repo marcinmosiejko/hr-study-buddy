@@ -4,11 +4,12 @@ import 'index.css';
 import Root from 'views/Root';
 import { worker } from 'mocks/browser';
 
-worker.start();
-
 const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(
-  <React.StrictMode>
-    <Root />
-  </React.StrictMode>
+
+worker.start().then(() =>
+  root.render(
+    <React.StrictMode>
+      <Root />
+    </React.StrictMode>
+  )
 );

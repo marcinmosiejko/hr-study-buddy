@@ -10,7 +10,7 @@ import {
   Navigate,
 } from 'react-router-dom';
 import MainTemplate from 'components/templates/MainTemplate/MainTemplate';
-import AddUser from './AddUser';
+// import AddUser from './AddUser';
 import Dashboard from './Dashboard';
 
 const Root = () => {
@@ -25,8 +25,7 @@ const Root = () => {
               <Route path="/group" element={<Dashboard />}>
                 <Route path=":id" element={<Dashboard />} />
               </Route>
-
-              <Route path="/add-user" element={<AddUser />} />
+              {/* <Route path="/add-user" element={<AddUser />} /> */}
             </Routes>
           </Wrapper>
         </MainTemplate>

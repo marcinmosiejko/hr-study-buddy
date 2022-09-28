@@ -16,4 +16,19 @@ export const handlers = [
 
     return res(ctx.status(200), ctx.json({ students: matchingStudents }));
   }),
+
+  rest.post('/students/search', (req, res, ctx) => {
+    const phrase = req.body.searchPhrase;
+    console.log(phrase);
+
+    const matchedStudents = phrase
+      ? students.filter((student) =>
+          student.name.toLowerCase().includes(phrase.toLowerCase())
+        )
+      : [];
+
+    console.log(matchedStudents);
+
+    return res(ctx.status(200), ctx.json({ students: matchedStudents }));
+  }),
 ];
