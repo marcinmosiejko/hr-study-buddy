@@ -1,70 +1,90 @@
-# Getting Started with Create React App
+<a name="readme-top"></a>
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<!-- PROJECT LOGO -->
+<br />
+<div align="center">
+  <a href="https://forkify-app-by-js.netlify.app">
+    <img src="https://github.com/mosiej803/hr-study-buddy/blob/main/public/favicon.png" alt="Logo" width="64" height="64">
+  </a>
 
-## Available Scripts
+<h3 align="center">Study Buddy</h3>
 
-In the project directory, you can run:
+  <p align="center">
+    Study Buddy is a code-along school management app done as a main project from Hello Roman React 2021 Course
+    <br />
+    <br />
+    <a href="study-buddy-hr.netlify.app">View Demo (under development)</a>
+  </p>
+</div>
 
-### `npm start`
+<br />
+<br />
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+<!-- FEATURES -->
+## Features
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+* under development
 
-### `npm test`
+<br />
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+<!-- SCREENSHOTS -->
 
-### `npm run build`
+## Screenshot
+<br />
+<img src="https://github.com/mosiej803/hr-study-buddy/blob/main/src/assets/screenshots/screenshot_1.png" alt="desktop usage" />
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+<br />
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `npm run eject`
+<!-- RUN LOCALLY -->
+## Run The App Locally
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+1. Clone the repo
+   ```sh
+   git clone https://github.com/mosiej803/hr-study-buddy
+   ```
+2. Install NPM packages
+   ```sh
+   npm install
+   ```
+3. Run local server
+   ```sh
+   npm start
+   ```
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+<br />
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+<!-- CONTACT -->
+## Contact
 
-## Learn More
+LinkedIn - [Marcin Mosiejko](https://www.linkedin.com/in/marcin-mosiejko-45937051/)
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Twitter - [@mosiej803](https://twitter.com/mosiej803)
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Project Link - [https://github.com/mosiej803/hr-study-buddy](https://github.com/mosiej803/hr-study-buddy)
 
-### Code Splitting
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
 
-### Analyzing the Bundle Size
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+<!-- LINKS -->
 
-### Making a Progressive Web App
+[Javascript]: https://img.shields.io/badge/JavaScript-323330?style=for-the-badge&logo=javascript&logoColor=F7DF1E
+[Javascript-url]: https://www.javascript.com/
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+[CSS3]: https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white
+[CSS3-url]: https://www.w3.org/Style/CSS/Overview.en.html
 
-### Advanced Configuration
+[SASS]: https://img.shields.io/badge/Sass-CC6699?style=for-the-badge&logo=sass&logoColor=white
+[SASS-url]: https://sass-lang.com/
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+[HTML5]: https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white
+[HTML5-url]: https://html5.org/
 
-### Deployment
+[MVC Architecture]: https://img.shields.io/badge/MVC-Architecture-green?style=for-the-badge
+[MVC-url]: https://www.freecodecamp.org/news/the-model-view-controller-pattern-mvc-architecture-and-frameworks-explained/
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
