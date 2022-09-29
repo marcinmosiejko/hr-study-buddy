@@ -1,14 +1,35 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import { ViewWrapper } from 'components/molecules/ViewWrapper/ViewWrapper';
-import UsersList from 'components/organisms/UsersList/UsersList';
-import { UsersContext } from 'providers/UsersProvider';
+import StudentsList from 'components/organisms/StudentsList/StudentsList';
+import { useParams } from 'react-router-dom';
+import { Wrapper, TitleWrapper, GroupLink } from './Dashboard.styles';
+import { useStudents } from 'hooks/useStudents';
+import { Title } from 'components/atoms/Title/Title';
+import { Navigate } from 'react-router-dom';
 
 const Dashboard = () => {
-  const { users } = useContext(UsersContext);
+  const { groups } = useStudents();
+  const { id } = useParams();
+
+  if (!id && groups.length > 0)
+    return <Navigate to={`/group/${groups.at(0)}`} />;
+
   return (
-    <ViewWrapper>
-      <UsersList users={users} />
-    </ViewWrapper>
+    <Wrapper>
+      <TitleWrapper>
+        <Title as="h2">{id ? `Group ${id}` : 'Select group'}</Title>
+        <nav>
+          {groups.map((group) => (
+            <GroupLink key={group} to={`/group/${group}`}>
+              {group}
+            </GroupLink>
+          ))}
+        </nav>
+      </TitleWrapper>
+      <ViewWrapper>
+        <StudentsList />
+      </ViewWrapper>
+    </Wrapper>
   );
 };
 
