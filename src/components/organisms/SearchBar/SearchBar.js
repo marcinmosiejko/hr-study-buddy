@@ -26,7 +26,9 @@ export const SearchBar = () => {
   useEffect(() => {
     if (!searchPhrase) return;
     getMatchingStudents(searchPhrase);
-  }, [searchPhrase, getMatchingStudents]);
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [searchPhrase]);
 
   const handleSearchStudents = (e) => {
     setSearchPhrase(e.target.value);

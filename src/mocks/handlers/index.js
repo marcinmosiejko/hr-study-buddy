@@ -27,8 +27,6 @@ export const handlers = [
         )
       : [];
 
-    console.log(matchedStudents);
-
     return res(ctx.status(200), ctx.json({ students: matchedStudents }));
   }),
 ];
