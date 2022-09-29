@@ -3,7 +3,7 @@ import { screen } from '@testing-library/react';
 import MockAdapter from 'axios-mock-adapter';
 import axios from 'axios';
 import NewsSection, { query } from './NewsSection';
-import { renderWithProviders } from 'helpers/renderWithProviders';
+import { render } from 'test-utils';
 
 const mock = new MockAdapter(axios);
 
@@ -17,7 +17,7 @@ describe('News Section', () => {
     // we query POST request which replies with error code 500
     mock.onPost(`https://graphql.datocms.com/`, { query }).reply(500);
 
-    renderWithProviders(<NewsSection />);
+    render(<NewsSection />);
     //findByText is used when we want to wait for async elements
     await screen.findByText(`Sorry, we couldn't load articles for you`);
   });
@@ -32,7 +32,7 @@ describe('News Section', () => {
       },
     });
 
-    renderWithProviders(<NewsSection />);
+    render(<NewsSection />);
     //findByText is used when we want to wait for async elements
     await screen.findAllByText(/Test/);
   });

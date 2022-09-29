@@ -19,7 +19,6 @@ export const handlers = [
 
   rest.post('/students/search', (req, res, ctx) => {
     const phrase = req.body.searchPhrase;
-    console.log(phrase);
 
     const matchedStudents = phrase
       ? students.filter((student) =>
