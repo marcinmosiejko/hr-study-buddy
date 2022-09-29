@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { ViewWrapper } from 'components/molecules/ViewWrapper/ViewWrapper';
 import StudentsList from 'components/organisms/StudentsList/StudentsList';
 import { useParams } from 'react-router-dom';
@@ -8,8 +8,20 @@ import { Title } from 'components/atoms/Title/Title';
 import { Navigate } from 'react-router-dom';
 
 const Dashboard = () => {
-  const { groups } = useStudents();
+  const [groups, setGroups] = useState([]);
+  const { getGroups } = useStudents();
   const { id } = useParams();
+
+  useEffect(() => {
+    (async () => {
+      try {
+        const groups = await getGroups();
+        setGroups(groups);
+      } catch (err) {
+        console.log(err);
+      }
+    })();
+  }, [id, getGroups]);
 
   if (!id && groups.length > 0)
     return <Navigate to={`/group/${groups.at(0)}`} />;
