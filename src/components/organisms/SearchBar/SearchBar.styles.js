@@ -47,7 +47,7 @@ export const SearchResultsWrapper = styled.div`
   font-size: ${({ theme }) => theme.fontSize.l};
   border: 2px solid ${({ theme }) => theme.colors.lightPurple};
   border-top: none;
-  z-index: 999;
+  z-index: 99;
   box-shadow: -2px 4px 10px rgba(115, 124, 142, 0.09);
 
   ul {

@@ -7,14 +7,27 @@ export const handlers = [
     return res(ctx.status(200), ctx.json({ groups }));
   }),
 
-  rest.get('/students/:group', (req, res, ctx) => {
-    const { group } = req.params;
+  rest.get('/groups/:id', (req, res, ctx) => {
+    const { id } = req.params;
 
-    const matchingStudents = group
-      ? students.filter((student) => student.group === group.toUpperCase())
+    const matchingStudents = id
+      ? students.filter((student) => student.group === id.toUpperCase())
       : students;
 
     return res(ctx.status(200), ctx.json({ students: matchingStudents }));
+  }),
+
+  rest.get('/students/:id', (req, res, ctx) => {
+    const { id } = req.params;
+
+    const matchingStudent = id
+      ? students.find((student) => student.id === id.toUpperCase())
+      : null;
+
+    if (!matchingStudent)
+      return res(ctx.status(404), ctx.json({ error: 'No matching student' }));
+
+    return res(ctx.status(200), ctx.json({ students: matchingStudent }));
   }),
 
   rest.post('/students/search', (req, res, ctx) => {
