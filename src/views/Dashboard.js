@@ -43,8 +43,8 @@ const Dashboard = () => {
         <Title as="h2">{id ? `Group ${id}` : 'Select group'}</Title>
         <nav>
           {groups.map((group) => (
-            <GroupLink key={group} to={`/groups/${group}`}>
-              {group}
+            <GroupLink key={group.id} to={`/groups/${group.id}`}>
+              {group.id}
             </GroupLink>
           ))}
         </nav>

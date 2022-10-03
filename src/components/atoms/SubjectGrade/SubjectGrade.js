@@ -2,11 +2,11 @@ import React from 'react';
 import { Wrapper } from './SubjectGrade.styles';
 import Average from '../Average/Average';
 
-const SubjectGrade = () => {
+const SubjectGrade = ({ subject, average }) => {
   return (
     <Wrapper>
-      <p>Modern Economy</p>
-      <Average average={3.9} />
+      <p>{subject}</p>
+      <Average average={average} />
     </Wrapper>
   );
 };
