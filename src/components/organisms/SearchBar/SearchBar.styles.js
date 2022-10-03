@@ -36,7 +36,7 @@ export const SearchWrapper = styled.div`
   position: relative;
 `;
 
-export const SearchResultsWrapper = styled.div`
+export const SearchResultsWrapper = styled.ul`
   position: absolute;
   background-color: ${({ theme }) => theme.colors.white};
   width: 80%;
@@ -49,11 +49,11 @@ export const SearchResultsWrapper = styled.div`
   border-top: none;
   box-shadow: -2px 4px 10px rgba(115, 124, 142, 0.09);
 
-  ul {
-    list-style: none;
-    overflow: auto;
-    max-height: 250px;
-  }
+  list-style: none;
+  overflow: auto;
+  max-height: 250px;
+
+  opacity: ${({ isVisible }) => (isVisible ? '1' : '0')};
 `;
 
 export const SearchResultsItem = styled.li`

@@ -1,9 +1,9 @@
 import { rest } from 'msw';
-import { students } from 'mocks/data/students';
-import { groups } from 'mocks/data/groups';
+import { db } from 'mocks/db';
 
 export const handlers = [
   rest.get(`/groups`, (req, res, ctx) => {
+    const groups = db.group.getAll();
     return res(ctx.status(200), ctx.json({ groups }));
   }),
 
@@ -11,8 +11,14 @@ export const handlers = [
     const { id } = req.params;
 
     const matchingStudents = id
-      ? students.filter((student) => student.group === id.toUpperCase())
-      : students;
+      ? db.student.findMany({
+          where: {
+            group: {
+              equals: id.toUpperCase(),
+            },
+          },
+        })
+      : db.student.findAll();
 
     return res(ctx.status(200), ctx.json({ students: matchingStudents }));
   }),
@@ -21,7 +27,13 @@ export const handlers = [
     const { id } = req.params;
 
     const matchingStudent = id
-      ? students.find((student) => student.id === id.toUpperCase())
+      ? db.student.findFirst({
+          where: {
+            id: {
+              equals: id,
+            },
+          },
+        })
       : null;
 
     if (!matchingStudent)
@@ -32,11 +44,15 @@ export const handlers = [
 
   rest.post('/students/search', (req, res, ctx) => {
     const phrase = req.body.searchPhrase;
-
+    console.log(phrase.toLowerCase());
     const matchedStudents = phrase
-      ? students.filter((student) =>
-          student.name.toLowerCase().includes(phrase.toLowerCase())
-        )
+      ? db.student.findMany({
+          where: {
+            name: {
+              contains: phrase,
+            },
+          },
+        })
       : [];
 
     return res(ctx.status(200), ctx.json({ students: matchedStudents }));

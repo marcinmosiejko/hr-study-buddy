@@ -13,7 +13,9 @@ import { SecondaryTitle } from 'components/atoms/SecodnaryTitle/SecodnaryTitle';
 import SubjectGrade from 'components/atoms/SubjectGrade/SubjectGrade';
 import DeleteButton from 'components/atoms/DeleteButton/DeleteButton';
 
-const StudentDetails = ({ student: { name, group, attendance, average } }) => {
+const StudentDetails = ({
+  student: { name, group, attendance, average, course, grades },
+}) => {
   return (
     <Wrapper>
       <HeaderContainer>
@@ -28,13 +30,13 @@ const StudentDetails = ({ student: { name, group, attendance, average } }) => {
       <MainContainer>
         <CourseContainer>
           <SecondaryTitle>Course</SecondaryTitle>
-          <p>Economy and Finances</p>
+          <p>{course}</p>
         </CourseContainer>
         <GradesContainer>
           <SecondaryTitle>Average grades:</SecondaryTitle>
-          <SubjectGrade />
-          <SubjectGrade />
-          <SubjectGrade />
+          {grades?.map(({ subject, average }) => (
+            <SubjectGrade key={subject} subject={subject} average={average} />
+          ))}
         </GradesContainer>
       </MainContainer>
     </Wrapper>
