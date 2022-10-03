@@ -3,7 +3,7 @@
 <!-- PROJECT LOGO -->
 <br />
 <div align="center">
-  <a href="https://forkify-app-by-js.netlify.app">
+  <a href="study-buddy-hr.netlify.app">
     <img src="https://github.com/mosiej803/hr-study-buddy/blob/main/public/favicon.png" alt="Logo" width="64" height="64">
   </a>
 
