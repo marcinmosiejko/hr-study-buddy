@@ -51,10 +51,10 @@ export const SearchBar = () => {
           id="Search"
           placeholder="Search"
         />
-        <SearchResultsWrapper>
-          <ul {...getMenuProps()} aria-label="results">
-            {isOpen &&
-              matchingStudents?.map((item, index) => (
+        {isOpen && matchingStudents.length > 0 ? (
+          <SearchResultsWrapper>
+            <ul {...getMenuProps()} aria-label="results">
+              {matchingStudents.map((item, index) => (
                 <SearchResultsItem
                   isHighlighted={highlightedIndex === index}
                   {...getItemProps({ item, index })}
@@ -63,8 +63,9 @@ export const SearchBar = () => {
                   {item.name}
                 </SearchResultsItem>
               ))}
-          </ul>
-        </SearchResultsWrapper>
+            </ul>
+          </SearchResultsWrapper>
+        ) : null}
       </SearchWrapper>
     </SearchBarWrapper>
   );

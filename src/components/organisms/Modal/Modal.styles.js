@@ -1,6 +1,7 @@
 import styled from 'styled-components';
+import ReactModal from 'react-modal';
 
-export const Wrapper = styled.div`
+export const Wrapper = styled(ReactModal)`
   position: absolute;
   top: 50%;
   left: 50%;
@@ -20,15 +21,8 @@ export const Wrapper = styled.div`
   align-items: center;
 
   z-index: 999;
-`;
 
-export const BackgroundOverlay = styled.div`
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 50, 100, 0.4);
-  backdrop-filter: blur(2px);
-  z-index: 998;
+  &:focus {
+    outline: none;
+  }
 `;
