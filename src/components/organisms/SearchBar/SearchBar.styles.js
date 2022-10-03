@@ -24,7 +24,7 @@ export const SearchBarWrapper = styled.div`
 
 export const StatusInfo = styled.div`
   color: ${({ theme }) => theme.colors.darkGrey};
-  fontsize: ${({ theme }) => theme.fontSize.l};
+  font-size: ${({ theme }) => theme.fontSize.l};
   margin-right: 40px;
 
   p {
@@ -47,7 +47,6 @@ export const SearchResultsWrapper = styled.div`
   font-size: ${({ theme }) => theme.fontSize.l};
   border: 2px solid ${({ theme }) => theme.colors.lightPurple};
   border-top: none;
-  z-index: 99;
   box-shadow: -2px 4px 10px rgba(115, 124, 142, 0.09);
 
   ul {
