@@ -3,7 +3,7 @@
 <!-- PROJECT LOGO -->
 <br />
 <div align="center">
-  <a href="https://study-buddy-hr.netlify.app">
+     <a href="https://study-buddy-hr.netlify.app/">
     <img src="https://github.com/mosiej803/hr-study-buddy/blob/main/public/favicon.png" alt="Logo" width="64" height="64">
   </a>
 
@@ -13,7 +13,7 @@
     Study Buddy is a code-along school management app done as a main project from Hello Roman React 2021 Course
     <br />
     <br />
-    <a href="study-buddy-hr.netlify.app">View Demo (under development)</a>
+    <a href="https://study-buddy-hr.netlify.app/">View Demo (under development)</a>
   </p>
 </div>
 
