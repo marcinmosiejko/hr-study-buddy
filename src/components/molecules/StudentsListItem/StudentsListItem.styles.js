@@ -5,6 +5,7 @@ export const Wrapper = styled.li`
   align-items: center;
   gap: 20px;
   position: relative;
+  cursor: pointer;
 
   & {
     padding-top: 24px;

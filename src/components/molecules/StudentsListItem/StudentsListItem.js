@@ -11,9 +11,10 @@ import { UserShape } from 'types';
 
 const StudentsListItem = ({
   userData: { name, attendance, average = '0%' },
+  ...props
 }) => {
   return (
-    <Wrapper>
+    <Wrapper {...props}>
       <Average average={average} />
       <div>
         <StyledName>{name}</StyledName>

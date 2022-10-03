@@ -21,8 +21,8 @@ const Root = () => {
         <MainTemplate>
           <Wrapper>
             <Routes>
-              <Route path="/" element={<Navigate replace to="/group" />} />
-              <Route path="/group" element={<Dashboard />}>
+              <Route path="/" element={<Navigate replace to="/groups" />} />
+              <Route path="/groups" element={<Dashboard />}>
                 <Route path=":id" element={<Dashboard />} />
               </Route>
               {/* <Route path="/add-user" element={<AddUser />} /> */}

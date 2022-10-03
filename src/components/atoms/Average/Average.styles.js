@@ -7,11 +7,12 @@ export const StyledAverage = styled.div`
     return `${theme.colors.warning}`;
   }};
 
-  width: 34px;
-  height: 34px;
+  width: ${({ isBig }) => (isBig ? '64px' : '34px')};
+  height: ${({ isBig }) => (isBig ? '64px' : '34px')};
   border-radius: 50%;
   color: ${({ theme }) => theme.colors.white};
-  font-size: ${({ theme }) => theme.fontSize.m};
+  font-size: ${({ theme, isBig }) =>
+    isBig ? theme.fontSize.xl : theme.fontSize.m};
   font-weight: 700;
 
   display: flex;
