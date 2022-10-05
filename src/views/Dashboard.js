@@ -35,7 +35,7 @@ const Dashboard = () => {
   };
 
   if (!id && groups.length > 0)
-    return <Navigate to={`/groups/${groups.at(0)}`} />;
+    return <Navigate to={`/groups/${groups.at(0).id}`} />;
 
   return (
     <Wrapper>

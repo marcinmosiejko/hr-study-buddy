@@ -1,37 +1,79 @@
 import React from 'react';
-import { ThemeProvider } from 'styled-components';
-import { GlobalStyle } from 'assets/styles/GlobalStyle';
-import { theme } from 'assets/styles/theme';
 import { Wrapper } from './Root.styles';
-import {
-  BrowserRouter as Router,
-  Routes,
-  Route,
-  Navigate,
-} from 'react-router-dom';
+import { Routes, Route, Navigate } from 'react-router-dom';
 import MainTemplate from 'components/templates/MainTemplate/MainTemplate';
 // import AddUser from './AddUser';
 import Dashboard from './Dashboard';
+import FormField from 'components/molecules/FormField/FormField';
+import { Button } from 'components/atoms/Button/Button';
+import { useForm } from 'react-hook-form';
+import { useAuth } from 'hooks/useAuth';
+
+const AuthenticatedApp = () => {
+  return (
+    <MainTemplate>
+      <Wrapper>
+        <Routes>
+          <Route path="/" element={<Navigate replace to="/groups" />} />
+          <Route path="/groups" element={<Dashboard />}>
+            <Route path=":id" element={<Dashboard />} />
+          </Route>
+          {/* <Route path="/add-user" element={<AddUser />} /> */}
+        </Routes>
+      </Wrapper>
+    </MainTemplate>
+  );
+};
+
+const UnauthenticatedApp = () => {
+  const { signIn } = useAuth();
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
+
+  return (
+    <form
+      onSubmit={handleSubmit(signIn)}
+      style={{
+        display: 'flex',
+        flexDirection: 'column',
+        justifyContent: 'center',
+        alignItems: 'center',
+        height: '100vh',
+        fontSize: '12px',
+      }}
+    >
+      <FormField
+        label="login"
+        name="login"
+        id="login"
+        {...register('login', { required: true })}
+      />
+      {errors.login && <span>Login is required</span>}
+      <FormField
+        label="password"
+        name="password"
+        id="password"
+        type="password"
+        {...register('password', { required: true })}
+      />
+      {errors.password && <span>Password is required</span>}
+      <Button type="submit">login</Button>
+      {/* {loginError && <span>{loginError}</span>} */}
+      <br />
+      <br />
+      <span>login: teacher@studybuddy.com</span>
+      <br />
+      <span>password: Test1234</span>
+    </form>
+  );
+};
 
 const Root = () => {
-  return (
-    <Router>
-      <ThemeProvider theme={theme}>
-        <GlobalStyle />
-        <MainTemplate>
-          <Wrapper>
-            <Routes>
-              <Route path="/" element={<Navigate replace to="/groups" />} />
-              <Route path="/groups" element={<Dashboard />}>
-                <Route path=":id" element={<Dashboard />} />
-              </Route>
-              {/* <Route path="/add-user" element={<AddUser />} /> */}
-            </Routes>
-          </Wrapper>
-        </MainTemplate>
-      </ThemeProvider>
-    </Router>
-  );
+  const { user } = useAuth();
+  return user ? <AuthenticatedApp /> : <UnauthenticatedApp />;
 };
 
 export default Root;
