@@ -33,6 +33,7 @@ export const Logo = styled.div`
 `;
 
 export const StyledLink = styled(NavLink)`
+  cursor: pointer;
   padding-right: 25px;
   text-align: right;
 
