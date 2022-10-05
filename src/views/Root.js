@@ -62,6 +62,11 @@ const UnauthenticatedApp = () => {
       {errors.password && <span>Password is required</span>}
       <Button type="submit">login</Button>
       {/* {loginError && <span>{loginError}</span>} */}
+      <br />
+      <br />
+      <span>login: teacher@studybuddy.com</span>
+      <br />
+      <span>password: Test1234</span>
     </form>
   );
 };
