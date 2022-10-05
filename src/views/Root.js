@@ -8,6 +8,8 @@ import FormField from 'components/molecules/FormField/FormField';
 import { Button } from 'components/atoms/Button/Button';
 import { useForm } from 'react-hook-form';
 import { useAuth } from 'hooks/useAuth';
+import ErrorMessage from 'components/molecules/ErrorMessage/ErrorMessage';
+import { useError } from 'hooks/useError';
 
 const AuthenticatedApp = () => {
   return (
@@ -34,46 +36,54 @@ const UnauthenticatedApp = () => {
   } = useForm();
 
   return (
-    <form
-      onSubmit={handleSubmit(signIn)}
-      style={{
-        display: 'flex',
-        flexDirection: 'column',
-        justifyContent: 'center',
-        alignItems: 'center',
-        height: '100vh',
-        fontSize: '12px',
-      }}
-    >
-      <FormField
-        label="login"
-        name="login"
-        id="login"
-        {...register('login', { required: true })}
-      />
-      {errors.login && <span>Login is required</span>}
-      <FormField
-        label="password"
-        name="password"
-        id="password"
-        type="password"
-        {...register('password', { required: true })}
-      />
-      {errors.password && <span>Password is required</span>}
-      <Button type="submit">login</Button>
-      {/* {loginError && <span>{loginError}</span>} */}
-      <br />
-      <br />
-      <span>login: teacher@studybuddy.com</span>
-      <br />
-      <span>password: Test1234</span>
-    </form>
+    <>
+      <form
+        onSubmit={handleSubmit(signIn)}
+        style={{
+          display: 'flex',
+          flexDirection: 'column',
+          justifyContent: 'center',
+          alignItems: 'center',
+          height: '100vh',
+          fontSize: '12px',
+        }}
+      >
+        <FormField
+          label="login"
+          name="login"
+          id="login"
+          {...register('login', { required: true })}
+        />
+        {errors.login && <span>Login is required</span>}
+        <FormField
+          label="password"
+          name="password"
+          id="password"
+          type="password"
+          {...register('password', { required: true })}
+        />
+        {errors.password && <span>Password is required</span>}
+        <Button type="submit">login</Button>
+        {/* {loginError && <span>{loginError}</span>} */}
+        <br />
+        <br />
+        <span>login: teacher@studybuddy.com</span>
+        <br />
+        <span>password: Test1234</span>
+      </form>
+    </>
   );
 };
 
 const Root = () => {
   const { user } = useAuth();
-  return user ? <AuthenticatedApp /> : <UnauthenticatedApp />;
+  const { error } = useError();
+  return (
+    <>
+      {error ? <ErrorMessage message={error} /> : null}
+      {user ? <AuthenticatedApp /> : <UnauthenticatedApp />}
+    </>
+  );
 };
 
 export default Root;
