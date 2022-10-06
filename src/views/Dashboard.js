@@ -9,6 +9,7 @@ import { Navigate } from 'react-router-dom';
 import useModal from 'hooks/useModal';
 import StudentDetails from 'components/molecules/StudentDetails/StudentDetails';
 import Modal from 'components/organisms/Modal/Modal';
+import { DisplayEventsData } from 'hoc/withEventsData';
 
 const Dashboard = () => {
   const [groups, setGroups] = useState([]);
@@ -55,6 +56,7 @@ const Dashboard = () => {
           <StudentDetails student={currentStudent} />
         </Modal>
       </ViewWrapper>
+      <DisplayEventsData />
     </Wrapper>
   );
 };
