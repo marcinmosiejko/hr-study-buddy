@@ -63,7 +63,7 @@ const UnauthenticatedApp = () => {
           {...register('password', { required: true })}
         />
         {errors.password && <span>Password is required</span>}
-        <Button type="submit">login</Button>
+        <Button type="submit">Sign in</Button>
         {/* {loginError && <span>{loginError}</span>} */}
         <br />
         <br />
