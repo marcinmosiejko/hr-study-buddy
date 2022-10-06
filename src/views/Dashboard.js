@@ -9,7 +9,8 @@ import { Navigate } from 'react-router-dom';
 import useModal from 'hooks/useModal';
 import StudentDetails from 'components/molecules/StudentDetails/StudentDetails';
 import Modal from 'components/organisms/Modal/Modal';
-import { DisplayEventsData } from 'hoc/withEventsData';
+import { DisplayEvents, DisplayEventsData } from 'hoc/withEventsData';
+import EventsProvider from 'providers/EventsProvider';
 
 const Dashboard = () => {
   const [groups, setGroups] = useState([]);
@@ -56,7 +57,10 @@ const Dashboard = () => {
           <StudentDetails student={currentStudent} />
         </Modal>
       </ViewWrapper>
-      <DisplayEventsData />
+      <EventsProvider
+        group="A"
+        render={(props) => <DisplayEvents events={props} />}
+      />
     </Wrapper>
   );
 };

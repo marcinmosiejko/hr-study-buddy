@@ -8,14 +8,14 @@ const withEventsData = (WrappedComponent, group) => {
 
     useEffect(() => {
       axios.get(`/events/${group}`).then(({ data }) => setEvents(data.events));
-    }, []);
+    }, [group]);
 
     return <WrappedComponent events={events} />;
   };
 };
 
 // Normallny would live in a seperate file and import the withEventsData HOC
-const DisplayEvents = (props) => {
+export const DisplayEvents = (props) => {
   return <div>log events {console.log(props)}</div>;
 };
 
