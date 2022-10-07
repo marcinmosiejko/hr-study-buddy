@@ -4,19 +4,23 @@ import { Routes, Route, Navigate } from 'react-router-dom';
 import MainTemplate from 'components/templates/MainTemplate/MainTemplate';
 // import AddUser from './AddUser';
 import Dashboard from './Dashboard';
+import Notes from './Notes';
 import FormField from 'components/molecules/FormField/FormField';
 import { Button } from 'components/atoms/Button/Button';
 import { useForm } from 'react-hook-form';
 import { useAuth } from 'hooks/useAuth';
 import ErrorMessage from 'components/molecules/ErrorMessage/ErrorMessage';
 import { useError } from 'hooks/useError';
+import NotesWidget from 'components/organisms/NotesWidget/NotesWidget';
 
 const AuthenticatedApp = () => {
   return (
     <MainTemplate>
+      <NotesWidget />
       <Wrapper>
         <Routes>
           <Route path="/" element={<Navigate replace to="/groups" />} />
+          <Route path="/notes" element={<Notes />} />
           <Route path="/groups" element={<Dashboard />}>
             <Route path=":id" element={<Dashboard />} />
           </Route>
