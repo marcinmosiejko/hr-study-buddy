@@ -18,7 +18,7 @@ const Notes = () => {
     handleSubmit,
     reset,
     formState,
-    formState: { isSubmitSuccessful },
+    formState: { isSubmitSuccessful, errors },
   } = useForm();
 
   const { data, isLoading } = useGetNotesQuery();
@@ -56,6 +56,8 @@ const Notes = () => {
           {...register('content', { required: true })}
         />
         <StyledButton type="submit">Add</StyledButton>
+        {errors.title && <span>Title is required</span>}
+        {errors.content && <span>Content is required</span>}
       </FormWrapper>
       {isLoading ? (
         <Title as="h2">Loading...</Title>

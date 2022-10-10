@@ -18,6 +18,15 @@ export const FormWrapper = styled.form`
   width: 100%;
   display: flex;
   flex-direction: column;
+
+  span {
+    color: ${({ theme }) => theme.colors.error};
+    font-size: ${({ theme }) => theme.fontSize.m};
+    font-weight: 700;
+    padding-top: 10px;
+    display: inline-block;
+    text-align: center;
+  }
 `;
 
 export const StyledFormField = styled(FormField)`
