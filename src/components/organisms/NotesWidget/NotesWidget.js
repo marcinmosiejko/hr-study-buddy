@@ -5,11 +5,11 @@ import {
   WidgetHandler,
   Wrapper,
 } from 'components/organisms/NotesWidget/NotesWidget.styles';
-import { useSelector } from 'react-redux';
+import { useGetNotesQuery } from 'store';
 
 const NotesWidget = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const notes = useSelector((state) => state.notes);
+  const { data } = useGetNotesQuery();
 
   const handleToggleWidget = () => {
     setIsOpen((prevState) => !prevState);
@@ -19,8 +19,8 @@ const NotesWidget = () => {
     <Wrapper isOpen={isOpen}>
       <WidgetHandler onClick={handleToggleWidget}>notes</WidgetHandler>
       <NotesWrapper>
-        {notes.length ? (
-          notes.map(({ id, title, content }) => (
+        {data?.notes.length ? (
+          data.notes.map(({ id, title, content }) => (
             <Note key={id} id={id} title={title} content={content} />
           ))
         ) : (
