@@ -18,7 +18,7 @@ const StudentsListItem = ({
       <Average average={average} />
       <div>
         <StyledName>{name}</StyledName>
-        <StyledAttendance>attendance: {attendance}</StyledAttendance>
+        <StyledAttendance>attendance: {attendance}%</StyledAttendance>
       </div>
       <DeleteButton />
     </Wrapper>

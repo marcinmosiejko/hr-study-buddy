@@ -1,44 +1,15 @@
 import { configureStore } from '@reduxjs/toolkit';
-import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
+import { notesApi } from './api/notes';
+import { groupsApi } from './api/groups';
 
-const notesApi = createApi({
-  baseQuery: fetchBaseQuery({
-    baseUrl: '/',
-  }),
-  tagTypes: ['Notes'],
-  endpoints: (builder) => ({
-    getNotes: builder.query({
-      query: () => 'notes',
-      providesTags: ['Notes'],
-    }),
-
-    addNote: builder.mutation({
-      query: (body) => ({
-        url: 'notes',
-        method: 'POST',
-        body,
-      }),
-      invalidatesTags: ['Notes'],
-    }),
-
-    removeNote: builder.mutation({
-      query: (body) => ({
-        url: 'notes',
-        method: 'DELETE',
-        body,
-      }),
-      invalidatesTags: ['Notes'],
-    }),
-  }),
-});
-
-// use[MethodName][MethodType]
-export const { useGetNotesQuery, useAddNoteMutation, useRemoveNoteMutation } =
-  notesApi;
+// Will export everything exportd in the linked files
+export * from './api/notes';
+export * from './api/groups';
 
 export const store = configureStore({
   reducer: {
     [notesApi.reducerPath]: notesApi.reducer,
+    [groupsApi.reducerPath]: groupsApi.reducer,
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware().concat(notesApi.middleware),
